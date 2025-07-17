@@ -1,10 +1,17 @@
 ﻿@page
-@model IndexModel
+@using PortafolioApp.Data
+@inject AppDbContext _context
+
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Raul Fernandez";
+    var projects = _context.ProjectLinks.ToList();
+    var certifications = _context.Certifications.ToList();
+    var jobs = _context.Jobs.ToList();
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+
+@await Html.PartialAsync("Partials/AboutMe")
+@await Html.PartialAsync("Partials/Portafolio", projects)
+@await Html.PartialAsync("Partials/Certifications", certifications)
+@await Html.PartialAsync("Partials/Jobs", jobs)

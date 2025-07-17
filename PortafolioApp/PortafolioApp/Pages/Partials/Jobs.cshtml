@@ -1,0 +1,24 @@
+@model List<PortafolioApp.Models.Jobs>
+
+
+<section class="flex flex-col items-center justify-center mt-16 px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Experience</h2>
+
+    <div class="w-full max-w-4xl space-y-6">
+        @foreach (var job in Model)
+        {
+            <div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition p-6">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                    <h3 class="text-xl font-semibold text-gray-800">@job.Title</h3>
+                    <span class="text-sm text-gray-500">@job.Location</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-2"><strong>@job.Company</strong></p>
+                <p class="text-sm text-gray-500 italic">
+                    @job.StartDate.ToString("MMMM yyyy") – 
+                    @(job.EndDate.HasValue ? job.EndDate.Value.ToString("MMMM yyyy") : "Present")
+                </p>
+                <p class="text-sm text-gray-700 mt-2">@job.Description</p>
+            </div>
+        }
+    </div>
+</section>
