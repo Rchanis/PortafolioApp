@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices.JavaScript;
+
 namespace PortafolioApp.Models;
 
 public class Jobs
@@ -10,9 +12,9 @@ public class Jobs
 
     public string Description { get; set; } = "";
 
-    public DateTime StartDate { get; set; }
+    public DateOnly StartDate { get; set; } = DateOnly.FromDateTime(DateTime.Today);
 
-    public DateTime? EndDate { get; set; }  
+    public DateOnly? EndDate { get; set; }  = DateOnly.FromDateTime(DateTime.Today);
 
     public string Location { get; set; } = "";  
    
