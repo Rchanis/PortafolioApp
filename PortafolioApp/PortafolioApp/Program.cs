@@ -23,6 +23,8 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+app.UseDeveloperExceptionPage(); 
+
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -45,5 +47,6 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
 
 app.Run();
