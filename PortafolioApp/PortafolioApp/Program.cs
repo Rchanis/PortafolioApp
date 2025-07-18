@@ -6,12 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-var connStr = builder.Configuration["Database:cockroachdb:ConnectionString"];
-Console.WriteLine($"Cadena conexión: '{connStr}'");
-if(string.IsNullOrEmpty(connStr))
-{
-    throw new Exception("Cadena de conexión no encontrada o vacía");
-}
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration["Database:cockroachdb:ConnectionString"]!));
@@ -37,6 +31,13 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.MapGet("/connstring", () =>
+{
+    var cs = builder.Configuration["Database:cockroachdb:ConnectionString"];
+    return cs ?? "No está definida";
+});
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
