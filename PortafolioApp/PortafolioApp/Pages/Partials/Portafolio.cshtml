@@ -1,12 +1,15 @@
 @model List<PortafolioApp.Models.ProjectLink>
 
-<h2 class="text-3xl font-bold text-center mt-10 mb-6">Portafolio</h2>
+<h2 class="text-3xl font-bold text-center mt-10 mb-6 text-gray-800 dark:text-white transition-colors duration-300">
+    Portfolio
+</h2>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 md:px-10">
     @foreach (var p in Model)
     {
-        <a href="@p.Url" target="_blank" class="block bg-white shadow-md hover:shadow-xl transition rounded-lg p-6 text-center border hover:border-blue-400">
-            <span class="text-xl font-semibold text-gray-800">@p.Title</span>
+        <a href="@p.Url" target="_blank"
+           class="block bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 shadow-md dark:shadow-md hover:shadow-xl dark:hover:shadow-lg transition-all rounded-lg p-6 text-center">
+            <span class="text-xl font-semibold">@p.Title</span>
         </a>
     }
 </div>

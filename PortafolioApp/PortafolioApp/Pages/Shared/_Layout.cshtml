@@ -1,37 +1,48 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - PortafolioApp</title>
+    <title>@ViewData["Title"] - PortfolioApp</title>
+
+    <!-- Tailwind config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class'  // keep class strategy for consistency
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/PortafolioApp.styles.css" asp-append-version="true"/>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 min-h-screen">
-<header class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
-    <a href="/" class="text-2xl font-bold text-gray-800 hover:text-blue-600 transition">
+<body class="min-h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-500">
+
+<header class="bg-white dark:bg-gray-900 shadow-md py-4 px-6 flex justify-between items-center transition-colors duration-300">
+    <a href="/" class="text-2xl font-bold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition">
         Raul Fernandez
     </a>
     <nav class="flex gap-4">
-        <a href="https://www.linkedin.com/in/raul-fernandezch/" target="_blank" class="text-blue-600 hover:text-blue-800 transition font-semibold">
+        <a href="https://www.linkedin.com/in/raul-fernandezch/" target="_blank"
+           class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition font-semibold">
             LinkedIn
         </a>
-        <a href="https://github.com/Rchanis" target="_blank" class="text-gray-700 hover:text-black transition font-semibold">
+        <a href="https://github.com/Rchanis" target="_blank"
+           class="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition font-semibold">
             GitHub
         </a>
     </nav>
 </header>
-    <main >
-        @RenderBody()
-    </main>
 
-<footer class="border-t text-gray-500 text-sm py-6 mt-16">
+<main>
+    @RenderBody()
+</main>
+
+<footer class="border-t border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 text-sm py-6 mt-16 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
         <span>&copy; 2025 - RFC Portafolio</span>
     </div>
 </footer>
-
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>

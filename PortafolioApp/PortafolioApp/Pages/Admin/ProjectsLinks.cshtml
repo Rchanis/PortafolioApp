@@ -4,23 +4,35 @@
     ViewData["Title"] = "Manage Project Links";
 }
 
-<h2 class="text-xl font-bold mb-4">Project Links</h2>
+<h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-white transition-colors duration-300">
+    Project Links
+</h2>
 
-<form method="post" class="flex gap-2 mb-4">
-    <input asp-for="NewProjectLink.Title" placeholder="Title" class="border p-2 rounded" />
-    <input asp-for="NewProjectLink.Url" placeholder="URL" class="border p-2 rounded" />
-    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Add</button>
+<form method="post" class="flex gap-2 mb-6">
+    <input asp-for="NewProjectLink.Title" placeholder="Title"
+           class="border border-gray-300 dark:border-gray-600 p-2 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300 flex-grow" />
+    <input asp-for="NewProjectLink.Url" placeholder="URL"
+           class="border border-gray-300 dark:border-gray-600 p-2 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300 flex-grow" />
+    <button type="submit"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors duration-300">
+        Add
+    </button>
 </form>
 
-<ul class="space-y-2">
+<ul class="space-y-3">
     @foreach (var link in Model.ProjectLinks)
     {
-        <li class="flex justify-between items-center border p-2 rounded">
+        <li class="flex justify-between items-center border border-gray-300 dark:border-gray-700 p-3 rounded bg-white dark:bg-gray-900 shadow-sm dark:shadow-md transition-colors duration-300">
             <div>
-                <a href="@link.Url" target="_blank" class="text-blue-600 hover:underline">@link.Title</a>
+                <a href="@link.Url" target="_blank"
+                   class="text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-300">
+                    @link.Title
+                </a>
             </div>
             <form method="post" asp-page-handler="Delete" asp-route-id="@link.Id">
-                <button class="text-red-500 hover:underline">Delete</button>
+                <button class="text-red-600 dark:text-red-400 hover:underline transition-colors duration-300">
+                    Delete
+                </button>
             </form>
         </li>
     }

@@ -54,3 +54,21 @@ TestResult.xml
 nunit-*.xml
 
 *.db
+
+## === TailwindCSS / Node ===
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Tailwind/PostCSS output (adjust to your actual output folder)
+wwwroot/css/*.css
+!wwwroot/css/site.css   # If you want to keep a minified or final CSS version
+
+# Optional: Vite/Parcel/Webpack output
+dist/
+build/
+
+# Optional: Tailwind CLI cache
+.tailwind-output.css
+.tailwind-cache/

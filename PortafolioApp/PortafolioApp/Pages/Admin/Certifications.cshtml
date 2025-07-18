@@ -4,27 +4,40 @@
     ViewData["Title"] = "Manage Certifications";
 }
 
-<h2 class="text-xl font-bold mb-4">Certifications</h2>
+<h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-white transition-colors duration-300">
+    Certifications
+</h2>
 
-<form method="post" class="space-y-2 mb-4">
-    <input asp-for="NewCertification.Title" placeholder="Title" class="border p-2 w-full rounded" />
-    <input asp-for="NewCertification.Issuer" placeholder="Organization" class="border p-2 w-full rounded" />
-    <input asp-for="NewCertification.CertificateUrl" placeholder="Certificate URL" class="border p-2 w-full rounded" />
-    <input asp-for="NewCertification.DateObtained" placeholder="Date Obtained" class="border p-2 w-full rounded" />
-    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Add</button>
+<form method="post" class="space-y-3 mb-6">
+    <input asp-for="NewCertification.Title" placeholder="Title"
+           class="border border-gray-300 dark:border-gray-600 p-2 w-full rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300" />
+    <input asp-for="NewCertification.Issuer" placeholder="Organization"
+           class="border border-gray-300 dark:border-gray-600 p-2 w-full rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300" />
+    <input asp-for="NewCertification.CertificateUrl" placeholder="Certificate URL"
+           class="border border-gray-300 dark:border-gray-600 p-2 w-full rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300" />
+    <input asp-for="NewCertification.DateObtained" placeholder="Date Obtained" type="date"
+           class="border border-gray-300 dark:border-gray-600 p-2 w-full rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300" />
+    <button type="submit"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors duration-300">
+        Add
+    </button>
 </form>
 
-<ul class="space-y-2">
+<ul class="space-y-3">
     @foreach (var cert in Model.Certifications.OrderByDescending(c => c.DateObtained))
     {
-        <li class="flex justify-between items-center border p-2 rounded">
+        <li class="flex justify-between items-center border border-gray-300 dark:border-gray-700 p-4 rounded bg-white dark:bg-gray-900 shadow-sm dark:shadow-md transition-colors duration-300">
             <div>
-                <div class="font-semibold">@cert.Title</div>
-                <div class="text-sm text-gray-500">@cert.Issuer</div>
-                <a href="@cert.CertificateUrl" class="text-blue-600 hover:underline" target="_blank">View Certificate</a>
+                <div class="font-semibold text-gray-800 dark:text-gray-200">@cert.Title</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">@cert.Issuer</div>
+                <a href="@cert.CertificateUrl" class="text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-300" target="_blank">
+                    View Certificate
+                </a>
             </div>
             <form method="post" asp-page-handler="Delete" asp-route-id="@cert.Id">
-                <button class="text-red-500 hover:underline">Delete</button>
+                <button class="text-red-600 dark:text-red-400 hover:underline transition-colors duration-300">
+                    Delete
+                </button>
             </form>
         </li>
     }

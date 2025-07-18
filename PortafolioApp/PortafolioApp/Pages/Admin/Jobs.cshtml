@@ -4,27 +4,40 @@
     ViewData["Title"] = "Manage Jobs";
 }
 
-<h2 class="text-xl font-bold mb-4">Jobs</h2>
+<h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-white transition-colors duration-300">
+    Jobs
+</h2>
 
-<form method="post" class="space-y-2 mb-4">
-    <input asp-for="NewJob.Company" placeholder="Company" class="border p-2 w-full rounded" />
-    <input asp-for="NewJob.Title" placeholder="Job Title" class="border p-2 w-full rounded" />
-    <input asp-for="NewJob.Location" placeholder="Location" class="border p-2 w-full rounded" />
-    <input asp-for="NewJob.Description" placeholder="Description" class="border p-2 w-full rounded" />
-    <input asp-for="NewJob.StartDate" placeholder="StartDate" class="border p-2 w-full rounded" />
-    <input asp-for="NewJob.EndDate" placeholder="EndDate" class="border p-2 w-full rounded" />
-    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Add</button>
+<form method="post" class="space-y-3 mb-6">
+    <input asp-for="NewJob.Company" placeholder="Company"
+           class="border border-gray-300 dark:border-gray-600 p-2 w-full rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300" />
+    <input asp-for="NewJob.Title" placeholder="Job Title"
+           class="border border-gray-300 dark:border-gray-600 p-2 w-full rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300" />
+    <input asp-for="NewJob.Location" placeholder="Location"
+           class="border border-gray-300 dark:border-gray-600 p-2 w-full rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300" />
+    <input asp-for="NewJob.Description" placeholder="Description"
+           class="border border-gray-300 dark:border-gray-600 p-2 w-full rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300" />
+    <input asp-for="NewJob.StartDate" placeholder="StartDate" type="date"
+           class="border border-gray-300 dark:border-gray-600 p-2 w-full rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300" />
+    <input asp-for="NewJob.EndDate" placeholder="EndDate" type="date"
+           class="border border-gray-300 dark:border-gray-600 p-2 w-full rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300" />
+    <button type="submit"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors duration-300">
+        Add
+    </button>
 </form>
 
-<ul class="space-y-2">
+<ul class="space-y-3">
     @foreach (var job in Model.Jobs)
     {
-        <li class="border p-2 rounded">
-            <div class="font-bold">@job.Title</div>
-            <div class="text-sm text-gray-600">@job.Company - @job.Location</div>
-            <p class="text-gray-800 mt-1">@job.Description</p>
+        <li class="border border-gray-300 dark:border-gray-700 p-4 rounded bg-white dark:bg-gray-900 shadow-sm dark:shadow-md transition-colors duration-300">
+            <div class="font-bold text-gray-800 dark:text-gray-200">@job.Title</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">@job.Company - @job.Location</div>
+            <p class="text-gray-800 dark:text-gray-300 mt-1">@job.Description</p>
             <form method="post" asp-page-handler="Delete" asp-route-id="@job.Id" class="mt-2">
-                <button class="text-red-500 hover:underline">Delete</button>
+                <button class="text-red-600 dark:text-red-400 hover:underline transition-colors duration-300">
+                    Delete
+                </button>
             </form>
         </li>
     }
