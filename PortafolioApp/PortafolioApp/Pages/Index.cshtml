@@ -20,17 +20,19 @@
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@@n8n/chat/dist/chat.bundle.es.js';
 
     createChat({
-        webhookUrl: '@n8nWebhookUrl', 
+        webhookUrl: '@Model.WebhookUrl', // Replace with your actual webhook URL if not using Razor
         initialMessages: [
-            'Hi',
-            'Hi I can only say 2 words :)'
-        ],i18n: {
+            'Hey there! 👋',
+            'Welcome to my portfolio — I’m Raul, a .NET developer. Let me know if you have any questions about my work.'
+        ],
+        locale: 'en',
+        i18n: {
             en: {
-                title: 'Holissss',
-                subtitle: "24/7",
+                title: 'Raul’s Assistant',
+                subtitle: 'Available anytime 🕐',
                 footer: '',
-                getStarted: ':)))',
-                inputPlaceholder: 'Que quieres saber?',
+                getStarted: 'Let’s go',
+                inputPlaceholder: 'Ask me anything about my projects, skills, or experience...',
             },
         },
     });
