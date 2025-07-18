@@ -32,12 +32,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.MapGet("/connstring", () =>
-{
-    var cs = builder.Configuration["Database:cockroachdb:ConnectionString"];
-    return cs ?? "No está definida";
-});
-
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
