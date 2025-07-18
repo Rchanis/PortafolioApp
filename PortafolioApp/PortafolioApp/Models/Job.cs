@@ -14,7 +14,7 @@ public class Job
 
     public DateOnly StartDate { get; set; } = DateOnly.FromDateTime(DateTime.Today);
 
-    public DateOnly? EndDate { get; set; }  = DateOnly.FromDateTime(DateTime.Today);
+    public DateOnly? EndDate { get; set; }  = null;
 
     public string Location { get; set; } = "";  
    

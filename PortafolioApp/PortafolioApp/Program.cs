@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite("Data Source=portfolio.db"));
+    options.UseNpgsql(builder.Configuration["Database:cockroachdb:ConnectionString"]!));
 
 builder.Services.AddAuthentication(options =>
     {
