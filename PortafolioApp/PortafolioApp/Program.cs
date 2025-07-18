@@ -6,6 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+var connStr = builder.Configuration["Database:cockroachdb:ConnectionString"];
+Console.WriteLine($"Cadena conexión: '{connStr}'");
+if(string.IsNullOrEmpty(connStr))
+{
+    throw new Exception("Cadena de conexión no encontrada o vacía");
+}
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration["Database:cockroachdb:ConnectionString"]!));
 
