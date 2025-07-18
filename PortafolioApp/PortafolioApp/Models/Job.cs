@@ -2,7 +2,7 @@ using System.Runtime.InteropServices.JavaScript;
 
 namespace PortafolioApp.Models;
 
-public class Jobs
+public class Job
 {
     public int Id { get; set; }
 

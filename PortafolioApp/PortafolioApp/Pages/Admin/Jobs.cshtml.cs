@@ -13,10 +13,10 @@ public class JobsModel : PageModel
     private readonly AppDbContext _context;
     public JobsModel(AppDbContext context) => _context = context;
 
-    public List<Jobs> Jobs { get; set; }
+    public List<Job> Jobs { get; set; }
 
     [BindProperty]
-    public Jobs NewJob { get; set; } = new();
+    public Job NewJob { get; set; } = new();
 
     public async Task OnGetAsync() =>
         Jobs = await _context.Jobs.ToListAsync();

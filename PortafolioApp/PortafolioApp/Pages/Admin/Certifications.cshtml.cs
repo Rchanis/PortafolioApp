@@ -14,10 +14,10 @@ public class CertificationsModel : PageModel
     private readonly AppDbContext _context;
     public CertificationsModel(AppDbContext context) => _context = context;
 
-    public List<Certifications> Certifications { get; set; }
+    public List<Certification> Certifications { get; set; }
 
     [BindProperty]
-    public Certifications NewCertification { get; set; } = new();
+    public Certification NewCertification { get; set; } = new();
 
     public async Task OnGetAsync() =>
         Certifications = await _context.Certifications.ToListAsync();

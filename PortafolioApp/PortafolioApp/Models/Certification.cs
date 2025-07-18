@@ -1,6 +1,6 @@
 namespace PortafolioApp.Models;
 
-public class Certifications
+public class Certification
 {
     public int Id { get; set; }
     public string Title { get; set; } = "";
