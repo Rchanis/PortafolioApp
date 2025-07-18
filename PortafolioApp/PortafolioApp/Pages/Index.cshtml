@@ -7,11 +7,12 @@
     var projects = _context.ProjectLinks.ToList();
     var certifications = _context.Certifications.ToList();
     var jobs = _context.Jobs.ToList();
+    var aboutMe = _context.AboutMeEntries.FirstOrDefault();
 }
 
 
 
-@await Html.PartialAsync("Partials/AboutMe")
+@await Html.PartialAsync("Partials/AboutMe", aboutMe)
 @await Html.PartialAsync("Partials/Portafolio", projects)
 @await Html.PartialAsync("Partials/Certifications", certifications)
 @await Html.PartialAsync("Partials/Jobs", jobs)

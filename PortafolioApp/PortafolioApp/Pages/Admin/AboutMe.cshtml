@@ -1,0 +1,14 @@
+@page
+@model AboutMeModel
+@{
+    ViewData["Title"] = "Edit About Me";
+}
+
+<h2 class="text-2xl font-bold mb-4">Edit About Me</h2>
+
+<form method="post">
+    <textarea asp-for="AboutMe.Content" class="w-full h-60 p-2 border border-gray-300 rounded"></textarea>
+    <span asp-validation-for="AboutMe.Content" class="text-red-500"></span>
+
+    <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-800">Save</button>
+</form>
