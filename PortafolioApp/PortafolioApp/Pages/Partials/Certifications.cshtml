@@ -1,20 +1,27 @@
 @model List<PortafolioApp.Models.Certification> 
 
 
-<section class="flex flex-col items-center justify-center mt-16 px-4">
-    <h2 class="text-3xl font-bold text-center mb-8">Certifications</h2>
+<section class="flex flex-col items-center justify-center mt-16 px-4 transition-colors duration-300">
+    <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white transition-colors duration-300">
+        Certifications
+    </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl">
         @foreach (var c in Model)
         {
-            <div class="bg-white shadow-md hover:shadow-xl transition rounded-xl p-6 border hover:border-green-400">
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">@c.Title</h3>
-                <p class="text-sm text-gray-500 mb-2">Issued by <strong>@c.Issuer</strong></p>
-                <p class="text-sm text-gray-400 mb-4">Date: @c.DateObtained.ToString("MMMM yyyy")</p>
+            <div class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 shadow-md dark:shadow-md hover:shadow-xl dark:hover:shadow-lg transition-all rounded-xl p-6 hover:border-green-400 dark:hover:border-green-500">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-1">@c.Title</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                    Issued by <strong>@c.Issuer</strong>
+                </p>
+                <p class="text-sm text-gray-400 dark:text-gray-500 mb-4">
+                    Date: @c.DateObtained.ToString("MMMM yyyy")
+                </p>
 
                 @if (!string.IsNullOrEmpty(c.CertificateUrl))
                 {
-                    <a href="@c.CertificateUrl" target="_blank" class="inline-block bg-green-500 text-white text-sm px-4 py-2 rounded-md hover:bg-green-600 transition">
+                    <a href="@c.CertificateUrl" target="_blank"
+                       class="inline-block bg-green-500 hover:bg-green-600 dark:hover:bg-green-400 text-white text-sm px-4 py-2 rounded-md transition">
                         View Certificate
                     </a>
                 }

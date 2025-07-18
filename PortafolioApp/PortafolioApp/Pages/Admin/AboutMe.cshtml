@@ -4,11 +4,18 @@
     ViewData["Title"] = "Edit About Me";
 }
 
-<h2 class="text-2xl font-bold mb-4">Edit About Me</h2>
+<h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white transition-colors duration-300">
+    Edit About Me
+</h2>
 
 <form method="post">
-    <textarea asp-for="AboutMe.Content" class="w-full h-60 p-2 border border-gray-300 rounded"></textarea>
-    <span asp-validation-for="AboutMe.Content" class="text-red-500"></span>
+    <textarea asp-for="AboutMe.Content"
+              class="w-full h-60 p-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 rounded resize-none shadow-sm focus:ring focus:ring-blue-400 focus:outline-none transition duration-200">
+    </textarea>
+    <span asp-validation-for="AboutMe.Content" class="text-red-500 dark:text-red-400"></span>
 
-    <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-800">Save</button>
+    <button type="submit"
+            class="mt-4 bg-blue-600 hover:bg-blue-800 text-white px-4 py-2 rounded transition-colors duration-200">
+        Save
+    </button>
 </form>
