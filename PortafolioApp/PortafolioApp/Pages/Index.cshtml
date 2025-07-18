@@ -1,4 +1,5 @@
 ﻿@page
+@model IndexModel
 @using PortafolioApp.Data
 @inject AppDbContext _context
 
@@ -8,9 +9,32 @@
     var certifications = _context.Certifications.ToList();
     var jobs = _context.Jobs.ToList();
     var aboutMe = _context.AboutMeEntries.FirstOrDefault();
+    var n8nWebhookUrl = Model.WebhookUrl;
 }
 
+<link href="https://cdn.jsdelivr.net/npm/@@n8n/chat/dist/style.css" rel="stylesheet" />
 
+<div id="n8n-chat-container"></div>
+
+<script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+        webhookUrl: '@n8nWebhookUrl', 
+        initialMessages: [
+            'Hi',
+            'Hi I can only say 2 words :)'
+        ],i18n: {
+            en: {
+                title: 'Holissss',
+                subtitle: "24/7",
+                footer: '',
+                getStarted: ':)))',
+                inputPlaceholder: 'Que quieres saber?',
+            },
+        },
+    });
+</script>
 
 @await Html.PartialAsync("Partials/AboutMe", aboutMe)
 @await Html.PartialAsync("Partials/Portafolio", projects)
