@@ -8,37 +8,13 @@
     var projects = _context.ProjectLinks.ToList();
     var certifications = _context.Certifications.ToList();
     var jobs = _context.Jobs.ToList();
-    var aboutMe = _context.AboutMeEntries.FirstOrDefault();
+    var aboutMe = _context.AboutMeEntries.SingleOrDefault();
     var n8nWebhookUrl = Model.WebhookUrl;
 }
 
-<link href="https://cdn.jsdelivr.net/npm/@@n8n/chat/dist/style.css" rel="stylesheet" />
 
-<div id="n8n-chat-container"></div>
-
-<script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@@n8n/chat/dist/chat.bundle.es.js';
-
-    createChat({
-        webhookUrl: '@Model.WebhookUrl', // Replace with your actual webhook URL if not using Razor
-        initialMessages: [
-            'Hey there! 👋',
-            'Welcome to my portfolio — I’m Raul, a .NET developer. Let me know if you have any questions about my work.'
-        ],
-        locale: 'en',
-        i18n: {
-            en: {
-                title: 'Raul’s Assistant',
-                subtitle: 'Available anytime 🕐',
-                footer: '',
-                getStarted: 'Let’s go',
-                inputPlaceholder: 'Ask me anything about my projects, skills, or experience...',
-            },
-        },
-    });
-</script>
-
+@await Html.PartialAsync("Partials/ChatBot", n8nWebhookUrl)
 @await Html.PartialAsync("Partials/AboutMe", aboutMe)
 @await Html.PartialAsync("Partials/Portafolio", projects)
-@await Html.PartialAsync("Partials/Certifications", certifications)
 @await Html.PartialAsync("Partials/Jobs", jobs)
+@await Html.PartialAsync("Partials/Certifications", certifications)

@@ -7,7 +7,7 @@
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl">
-        @foreach (var c in Model)
+        @foreach (var c in Model.OrderByDescending(c => c.DateObtained))
         {
             <div class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 shadow-md dark:shadow-md hover:shadow-xl dark:hover:shadow-lg transition-all rounded-xl p-6 hover:border-green-400 dark:hover:border-green-500">
                 <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-1">@c.Title</h3>
