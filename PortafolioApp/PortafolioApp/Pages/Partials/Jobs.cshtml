@@ -20,7 +20,7 @@
                     @(job.EndDate.HasValue ? job.EndDate.Value.ToString("MMMM yyyy") : "Present")
                 </p>
                 <p class="text-sm text-gray-700 dark:text-gray-300 mt-2">
-                    @job.Description
+                    @Html.Raw(job.Description)
                 </p>
             </div>
         }
