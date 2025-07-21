@@ -1,0 +1,27 @@
+@model string
+
+<link href="https://cdn.jsdelivr.net/npm/@@n8n/chat/dist/style.css" rel="stylesheet" />
+
+<div id="n8n-chat-container"></div>
+
+<script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+        webhookUrl: '@Model', 
+        initialMessages: [
+            'Hey there! 👋',
+            'Welcome to my portfolio — I’m Raul, a .NET developer. Let me know if you have any questions about my work.'
+        ],
+        locale: 'en',
+        i18n: {
+            en: {
+                title: 'Raul’s Assistant',
+                subtitle: 'Available anytime 🕐',
+                footer: '',
+                getStarted: 'Let’s go',
+                inputPlaceholder: 'Ask me anything about my projects, skills, or experience...',
+            },
+        },
+    });
+</script>
