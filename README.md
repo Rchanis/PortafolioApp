@@ -51,3 +51,32 @@ This site is deployed via Azure Web App with GitHub Actions .
 Environment variables and secrets are set via Azure App Configuration.
 
 The site runs in production mode and connects to the CockroachDB free cluster.
+
+
+---
+
+## ⚙️ Development Setup
+
+1. **Clone the repo:**
+
+   ```bash
+   git clone https://github.com/your-username/portfolio-site.git
+   cd portfolio-site
+
+2. **Set up user secrets:**
+
+    ```bash
+    dotnet user-secrets init
+    dotnet user-secrets set "Authentication:Google:ClientId" "your-client-id"
+    dotnet user-secrets set "Authentication:Google:ClientSecret" "your-client-secret"
+    dotnet user-secrets set "ConnectionStrings:DefaultConnection" "your-cockroach-connection-string"
+
+3. **Apply migrations**
+
+   ```bash
+   dotnet ef database update
+
+4.  **Run the site locally:**
+
+    ```bash
+    dotnet run
