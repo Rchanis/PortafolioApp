@@ -42,6 +42,8 @@ This is the opposite of an overengineered website. I wanted to keep things simpl
 ├── appsettings.json # General config
 └── Program.cs / Startup.cs # App entry point
 
+---
+
 ## 🌐 Deployment (Azure)
 
 This site is deployed via Azure Web App with GitHub Actions .
