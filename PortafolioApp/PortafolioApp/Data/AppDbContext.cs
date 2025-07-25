@@ -11,7 +11,7 @@ public class AppDbContext : DbContext
     public DbSet<Certification>  Certifications { get; set; }
     public DbSet<Job> Jobs { get; set; }
     public DbSet<AboutMe> AboutMeEntries { get; set; }
-
+    public DbSet<Link> Links { get; set; }
     
     
     

@@ -22,21 +22,8 @@
 </head>
 <body class="min-h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-500">
 
-<header class="bg-white dark:bg-gray-900 shadow-md py-4 px-6 flex justify-between items-center transition-colors duration-300">
-    <a href="/" class="text-2xl font-bold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition">
-        Raul Fernandez
-    </a>
-    <nav class="flex gap-4">
-        <a href="https://www.linkedin.com/in/raul-fernandezch/" target="_blank"
-           class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition font-semibold">
-            LinkedIn
-        </a>
-        <a href="https://github.com/Rchanis" target="_blank"
-           class="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition font-semibold">
-            GitHub
-        </a>
-    </nav>
-</header>
+@await Html.PartialAsync("Partials/_Header")
+
 
 <main>
     @RenderBody()
